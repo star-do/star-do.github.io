@@ -35,9 +35,9 @@ http://example.com/tags/HY/
 http://example.com/tags/VPS/
 http://example.com/tags/linux/
 http://example.com/tags/Hiddify/
+http://example.com/tags/BBR%E5%8A%A0%E9%80%9F/
 http://example.com/tags/Markdown/
 http://example.com/tags/%E5%BB%BA%E7%AB%99/
-http://example.com/tags/BBR%E5%8A%A0%E9%80%9F/
 http://example.com/tags/markdown/
 http://example.com/tags/%E7%BC%96%E8%BE%91%E5%99%A8/
 http://example.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/
