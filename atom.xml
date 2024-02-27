@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Astar Blog</title>
   
-  <subtitle>Dark Star Domain</subtitle>
+  <subtitle>Dark Star Domain,暗星域</subtitle>
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
