@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-02-24T14:24:48.235Z</updated>
+  <updated>2024-02-28T09:39:20.895Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>谷歌大模型AI—Gemini白嫖api攻略</title>
+    <link href="http://example.com/2024/02/28/%E8%B0%B7%E6%AD%8C%E5%A4%A7%E6%A8%A1%E5%9E%8BAI%E2%80%94Gemini%E7%99%BD%E5%AB%96api%E6%94%BB%E7%95%A5/"/>
+    <id>http://example.com/2024/02/28/%E8%B0%B7%E6%AD%8C%E5%A4%A7%E6%A8%A1%E5%9E%8BAI%E2%80%94Gemini%E7%99%BD%E5%AB%96api%E6%94%BB%E7%95%A5/</id>
+    <published>2024-02-28T09:21:20.000Z</published>
+    <updated>2024-02-28T09:39:20.895Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>➡️近日一直在寻找一款稳定靠谱用着踏实的大模型ai自建方案，openai的api需要收费，用token则非常不稳定；使用azure提供的openai的api很快、稳定，但需要收费。最近突然发现谷歌新出的gemini大模型ai,其功能基本对标chatgpt,使用体验上也区别不大，但是，谷歌提供了每分钟60条的免费api套餐，很是划算！于是采取gemini的api结合广受好评的chatgpt-next-web项目提供的网页，自建专属的免费智能AI！</p></blockquote><hr><h2 id="📝申请Gemini的api"><a href="#📝申请Gemini的api" class="headerlink" title="📝申请Gemini的api"></a>📝<strong><strong>申请Gemini的api</strong></strong></h2><p><strong>打开谷歌开放平台：</strong></p><p><img src="https://pic4.zhimg.com/80/v2-56f146c702a55d4502c33cdef19f238f_1440w.webp?t=42e377b3-d467-4b6b-bb34-fd57a40f53f1" alt="notion image"></p><p>往下拉可以看到2个版本的API。</p><p>选择左边的免费版。</p><p><img src="https://pic4.zhimg.com/80/v2-22368262a2c464e30e3a7eb1ce86963b_1440w.webp?t=3e9bdc41-c63a-40ba-afeb-b9c0f73b990e" alt="notion image"></p><p>登录@<a href="https://gmail.com/">gmail.com</a>邮箱。(需要自行寻找合适的节点进行科学上网)</p><p>之后同意下图所示的第一个协议（二三个复选框是允许推广，可选可不选）</p><p><img src="https://pic3.zhimg.com/v2-42bc86dd482071fda9c85d3eea642c66_r.jpg?t=76e66306-be9e-46dc-9104-9f147e116be7" alt="notion image"></p><p>在这个界面选择第二项。</p><p>获取API秘钥</p><p><img src="https://pic2.zhimg.com/80/v2-6fc056e43d01585bbb02dea2449eaa35_1440w.webp?t=fdcbfc81-0083-4a5d-bbc5-e30511f517e4" alt="notion image"></p><p><img src="https://pic4.zhimg.com/80/v2-3503859e6415839d14dddf4830c11473_1440w.webp?t=c515feb1-d39e-4784-9a53-b2ec7cd0456e" alt="notion image"></p><p>这里会生成一个API的秘钥，</p><p>复制记录一下。保存好。</p><p>没有保存，就需要重新生成了。</p><p><img src="https://pic2.zhimg.com/80/v2-47abc567b9509626d7a623a34c76b7a5_1440w.webp?t=1ffe7351-968c-46ec-9f45-9815dfe37831" alt="notion image"></p><p>OK 这样我们的免费API就申请好了。</p><p>（注：本节为了省事和避免重复造轮子，引用了<a href="https://zhuanlan.zhihu.com/p/673300213">李飞笔记</a>的部分内容和图片）</p><h3 id="创建chatgpt-next-web"><a href="#创建chatgpt-next-web" class="headerlink" title="创建chatgpt-next-web"></a><strong><strong>创建chatgpt-next-web</strong></strong></h3><p>在此我采用的作者提供的Vercel方案。<br>具体教程参考作者<a href="https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web/blob/main/README_CN.md">README.md</a></p><h3 id="改环境变量"><a href="#改环境变量" class="headerlink" title="改环境变量"></a><strong>改环境变量</strong></h3><p>在按照教程搭建好chatgpt-next-web后，进入项目设置的环境变量部分：</p><p><img src="https://pic.m-l.cc/Qexo/2024/02/25/6b9dfb6070be4f87f662380ab73406c2.png?t=bfe2dbed-86ea-4d7a-86d7-98faf0611b8f" alt="notion image"></p><p>删除多余的环境变量（如，没有openai的token你就删掉它。）</p><p>保留如下三项：</p><blockquote><p>CUSTOM_MODELS&#x3D;-all,+gemini-pro # 只保留gemini-pro一个ai选项，避免默认选项导致需要手动选择。<br>CODE&#x3D;<passwd> # 这里填入你想设置的任何密码就好<br>GOOGLE_API_KEY&#x3D;<apikey>  # 这里填入你刚刚申请到的gemini的api-key</p></blockquote><p>然后点击项目的<code>deployments</code>按钮，创建新的部署</p><p><img src="https://pic.m-l.cc/Qexo/2024/02/25/dc274ed12b09bec4339ba1aa6765852b.png?t=7419a1ae-5f0d-4a17-aad6-86b9b4ee9fe6" alt="notion image"></p><p>等待部署完毕后，你的私人大模型ai就创建成功了，开始享用你的ai吧！</p><p><img src="https://pic.m-l.cc/Qexo/2024/02/25/262a642100f24e79999cd71ad624c1ba.png?t=55ca406d-5a3f-4e85-8780-505102b4b7ea" alt="notion image"></p><h2 id="完毕"><a href="#完毕" class="headerlink" title="完毕"></a><strong>完毕</strong></h2><p>打开你的vercel.app链接开始享用你的ai</p><p>如果vercel.app被墙了，请自行解析一个自定义域名用于访问你的ai网站。</p><p><img src="https://pic.m-l.cc/Qexo/2024/02/25/57d62536a58ab25a3a02b0bc92f49631.png?t=cd56db19-3812-48fb-a68b-09a6f1e74a96" alt="notion image"></p><h2 id="📎-参考文章"><a href="#📎-参考文章" class="headerlink" title="📎 参考文章"></a>📎 参考文章</h2><ul><li><p>一些引用</p></li><li><p>引用文章<a href="https://blog.m-l.cc/2024/03/01/gu-ge-da-mo-xing-ai-gemini-bai-piao-api-gong-lue/">https://blog.m-l.cc/2024/03/01/gu-ge-da-mo-xing-ai-gemini-bai-piao-api-gong-lue/</a></p></li></ul><h3 id="📢总结："><a href="#📢总结：" class="headerlink" title="📢总结："></a><a href="#4bc85208976a431c8a3b9cbce6993c0a" title="📢总结："></a>📢总结：</h3><p>本文详细介绍了如何利用谷歌的Gemini大模型AI免费API，并结合chatgpt-next-web项目，自建一款免费且功能强大的智能AI。首先，作者在谷歌开放平台上申请了Gemini的API，这是一个每分钟可以免费获取60条的API套餐，非常划算。接下来，作者创建了chatgpt-next-web项目，这是一个广受好评的项目，提供了明确的创建教程和方案，使得用户可以很方便地自建智能AI。在创建项目的过程中，作者在环境变量中设置了API秘钥，这是搭建自建智能AI的关键步骤。完成这些步骤后，作者在项目设置中部署了该项目，并成功创建了一个私人大模型AI。总的来说，这篇文章为那些希望自建智能AI的用户提供了一种实用且经济的方案，将谷歌的Gemini大模型AI免费API与chatgpt-next-web项目相结合，用户不仅可以享受到免费的API，也可以享受到强大的智能AI带来的便利。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;➡️近日一直在寻找一款稳定靠谱用着踏实的大模型ai自建方案，openai的api需要收费，用token则非常不稳定；使用azure提供的openai的api很快、稳定，但需要收费。最近突然发现谷歌新出的gemini大模型ai,其功能基本对标chat</summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="AI" scheme="http://example.com/tags/AI/"/>
+    
+    <category term="Gemini" scheme="http://example.com/tags/Gemini/"/>
+    
+    <category term="Google" scheme="http://example.com/tags/Google/"/>
+    
+    <category term="谷歌" scheme="http://example.com/tags/%E8%B0%B7%E6%AD%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>通过worker实现自动优选反代IP</title>
